@@ -1,23 +1,24 @@
+import asyncio
+try:
+    asyncio.get_event_loop()
+except RuntimeError:
+    asyncio.set_event_loop(asyncio.new_event_loop())
+
 import logging
 import os
 from pyrogram import Client
 from telegram.ext import Application
 from motor.motor_asyncio import AsyncIOMotorClient
-
 logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
     level=logging.INFO,
 )
-
 logging.getLogger("apscheduler").setLevel(logging.ERROR)
 logging.getLogger('httpx').setLevel(logging.WARNING)
 logging.getLogger("pyrate_limiter").setLevel(logging.ERROR)
 LOGGER = logging.getLogger(__name__)
-
 from senpai.config import Development as Config
-
-
 api_id = Config.api_id
 api_hash = Config.api_hash
 TOKEN = Config.TOKEN
@@ -29,7 +30,6 @@ SUPPORT_CHAT = Config.SUPPORT_CHAT
 UPDATE_CHAT = Config.UPDATE_CHAT
 OWNER_ID = Config.OWNER_ID
 IMGBB_API_KEY = Config.IMGBB_API_KEY
-
 application = Application.builder().token(TOKEN).build()
 shivuu = Client("Senpai", api_id, api_hash, bot_token=TOKEN)
 lol = AsyncIOMotorClient(mongo_url)
