@@ -50,6 +50,43 @@ async def upload_to_imgbb(image_url: str) -> str:
     return result["data"].get("display_url") or result["data"]["url"]
 
 
+def _get_replied_image_file_id(message) -> str | None:
+    if not message:
+        return None
+
+    if getattr(message, "photo", None):
+        return message.photo[-1].file_id
+
+    document = getattr(message, "document", None)
+    if document and getattr(document, "mime_type", "").startswith("image/"):
+        return document.file_id
+
+    return None
+
+
+async def _resolve_image_url(update: Update, context: CallbackContext, provided_url: str | None = None) -> str:
+    if provided_url:
+        try:
+            urllib.request.urlopen(provided_url)
+        except Exception:
+            raise ValueError(await tr(update, "upload.invalid_url"))
+        return await upload_to_imgbb(provided_url)
+
+    file_id = _get_replied_image_file_id(update.effective_message.reply_to_message)
+    if not file_id:
+        raise ValueError(await tr(update, "upload.invalid_url"))
+
+    file = await context.bot.get_file(file_id)
+    telegram_file_url = f"https://api.telegram.org/file/bot{context.bot.token}/{file.file_path}"
+
+    try:
+        urllib.request.urlopen(telegram_file_url)
+    except Exception:
+        raise ValueError(await tr(update, "upload.invalid_url"))
+
+    return await upload_to_imgbb(telegram_file_url)
+
+
 async def upload(update: Update, context: CallbackContext) -> None:
     if not await is_sudo_user(update.effective_user.id):
         await update.message.reply_text(await tr(update, "upload.owner_only"))
@@ -57,24 +94,29 @@ async def upload(update: Update, context: CallbackContext) -> None:
 
     try:
         args = context.args
-        if len(args) != 4:
+        if len(args) == 4:
+            img_url_arg = args[0]
+            character_name = args[1].replace('-', ' ').title()
+            anime = args[2].replace('-', ' ').title()
+            rarity_arg = args[3]
+        elif len(args) == 3:
+            img_url_arg = None
+            character_name = args[0].replace('-', ' ').title()
+            anime = args[1].replace('-', ' ').title()
+            rarity_arg = args[2]
+        else:
             await update.message.reply_text(await tr(update, "upload.wrong_format"))
             return
 
-        character_name = args[1].replace('-', ' ').title()
-        anime = args[2].replace('-', ' ').title()
-
         try:
-            urllib.request.urlopen(args[0])
-        except:
-            await update.message.reply_text(await tr(update, "upload.invalid_url"))
+            img_url = await _resolve_image_url(update, context, img_url_arg)
+        except ValueError as exc:
+            await update.message.reply_text(str(exc))
             return
-
-        img_url = await upload_to_imgbb(args[0])
 
         rarity_map = {1: "⚪ Common", 2: "🟣 Rare", 3: "🟡 Legendary", 4: "🟢 Medium"}
         try:
-            rarity = rarity_map[int(args[3])]
+            rarity = rarity_map[int(rarity_arg)]
         except KeyError:
             await update.message.reply_text(await tr(update, "upload.invalid_rarity"))
             return
@@ -145,44 +187,51 @@ async def update(update: Update, context: CallbackContext) -> None:
 
     try:
         args = context.args
-        if len(args) != 3:
+        if len(args) == 3:
+            character_id = args[0]
+            field_name = args[1]
+            new_value = args[2]
+        elif len(args) == 2 and args[1] == 'img_url':
+            character_id = args[0]
+            field_name = args[1]
+            new_value = None
+        else:
             await update.message.reply_text(await tr(update, "upload.update_usage"))
             return
 
         # Get character by ID
-        character = await collection.find_one({'id': args[0]})
+        character = await collection.find_one({'id': character_id})
         if not character:
             await update.message.reply_text(await tr(update, "upload.not_found"))
             return
 
         # Check if field is valid
         valid_fields = ['img_url', 'name', 'anime', 'rarity']
-        if args[1] not in valid_fields:
+        if field_name not in valid_fields:
             await update.message.reply_text(await tr(update, "upload.invalid_field", fields=", ".join(valid_fields)))
             return
 
         # Update field
-        if args[1] in ['name', 'anime']:
-            new_value = args[2].replace('-', ' ').title()
-        elif args[1] == 'rarity':
+        if field_name in ['name', 'anime']:
+            new_value = new_value.replace('-', ' ').title()
+        elif field_name == 'rarity':
             rarity_map = {1: "⚪ Common", 2: "🟣 Rare", 3: "🟡 Legendary", 4: "🟢 Medium", 5: "💮 Special edition"}
             try:
-                new_value = rarity_map[int(args[2])]
+                new_value = rarity_map[int(new_value)]
             except KeyError:
                 await update.message.reply_text(await tr(update, "upload.invalid_rarity"))
                 return
         else:
             try:
-                urllib.request.urlopen(args[2])
-            except:
-                await update.message.reply_text(await tr(update, "upload.invalid_url"))
+                new_value = await _resolve_image_url(update, context, new_value)
+            except ValueError as exc:
+                await update.message.reply_text(str(exc))
                 return
-            new_value = await upload_to_imgbb(args[2])
 
-        await collection.find_one_and_update({'id': args[0]}, {'$set': {args[1]: new_value}})
+        await collection.find_one_and_update({'id': character_id}, {'$set': {field_name: new_value}})
 
 
-        if args[1] == 'img_url':
+        if field_name == 'img_url':
             await context.bot.delete_message(chat_id=CHARA_CHANNEL_ID, message_id=character['message_id'])
             message = await context.bot.send_photo(
                 chat_id=CHARA_CHANNEL_ID,
@@ -200,7 +249,7 @@ async def update(update: Update, context: CallbackContext) -> None:
                 parse_mode='HTML'
             )
             character['message_id'] = message.message_id
-            await collection.find_one_and_update({'id': args[0]}, {'$set': {'message_id': message.message_id}})
+            await collection.find_one_and_update({'id': character_id}, {'$set': {'message_id': message.message_id}})
         else:
 
             await context.bot.edit_message_caption(
