@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "code": "hi",
+    "name": "हिन्दी"
+  },
+  "language": {
+    "current": "वर्तमान भाषा: {language_name} ({language_code})\n\nउपलब्ध भाषाएँ:\n{languages}\n\nभाषा बदलने के लिए /lang <code> या /language <language name> इस्तेमाल करें।",
+    "changed": "भाषा {language_name} ({language_code}) में बदल दी गई है।",
+    "not_found": "भाषा नहीं मिली: {query}\n\nउपलब्ध भाषाएँ:\n{languages}"
+  },
+  "start": {
+    "new_user_log": "नए यूज़र ने बॉट शुरू किया..\n यूज़र: <a href='tg://user?id={user_id}'>{first_name})</a>",
+    "private_caption": "***नमस्ते...***\n\n***मैं एक ओपन-सोर्स कैरेक्टर कैचर बॉट हूँ... मुझे अपने ग्रुप में जोड़ें। मैं ग्रुप में हर 100 संदेशों के बाद रैंडम कैरेक्टर भेजूँगा। /guess से कैरेक्टर कलेक्ट करें और /harem से अपनी कलेक्शन देखें।***",
+    "group_caption": "🎴मैं चालू हूँ!... \n ज़्यादा जानकारी के लिए मुझे निजी संदेश भेजें ",
+    "help_caption": "***सहायता अनुभाग:***\n    \n***/guess: कैरेक्टर का नाम अनुमान लगाने के लिए (सिर्फ ग्रुप में)***\n***/fav: अपना पसंदीदा कैरेक्टर सेट करें***\n***/trade : कैरेक्टर ट्रेड करें***\n***/gift: अपनी कलेक्शन से किसी यूज़र को कैरेक्टर गिफ्ट करें.. (सिर्फ ग्रुप में)***\n***/collection: अपनी कलेक्शन देखें***\n***/topgroups : सबसे ज़्यादा अनुमान लगाने वाले टॉप ग्रुप देखें***\n***/top: टॉप यूज़र देखें***\n***/ctop : इस चैट के टॉप यूज़र देखें***\n***/changetime: कैरेक्टर आने की फ्रीक्वेंसी बदलें (सिर्फ ग्रुप में)***",
+    "back_caption": "***नमस्ते...*** ✨\n\n***मैं एक ओपन-सोर्स कैरेक्टर कैचर बॉट हूँ.. मुझे अपने ग्रुप में जोड़ें। मैं ग्रुप में हर 100 संदेशों के बाद रैंडम कैरेक्टर भेजूँगा। /guess से कैरेक्टर कलेक्ट करें और /harem से अपनी कलेक्शन देखें।***"
+  },
+  "guess": {
+    "spam_warning": "⚠️ स्पैम मत करें {first_name}...\nआपके संदेश 10 मिनट तक नज़रअंदाज़ किए जाएँगे...",
+    "spawn_caption": "एक नया {rarity} कैरेक्टर आया है...\n/guess कैरेक्टर का नाम लिखकर उसे अपने हरेम में जोड़ें",
+    "already_guessed": "❌️ इसे पहले ही किसी ने अनुमान लगा लिया है.. अगली बार कोशिश करें ",
+    "blocked_words": "नहीं, अनुमान में ऐसे शब्द इस्तेमाल नहीं कर सकते..❌️",
+    "wrong_guess": "कृपया सही कैरेक्टर नाम लिखें... ❌️",
+    "success": "<b><a href=\"tg://user?id={user_id}\">{first_name}</a></b> आपने नया कैरेक्टर सही अनुमान लगाया ✅️ \n\nनाम: <b>{name}</b> \nऐनिमे: <b>{anime}</b> \nरेयरिटी: <b>{rarity}</b>\n\nयह कैरेक्टर आपके हरेम में जोड़ दिया गया है.. अपना हरेम देखने के लिए /harem इस्तेमाल करें",
+    "see_harem": "हरेम देखें"
+  },
+  "fav": {
+    "missing_id": "कृपया कैरेक्टर आईडी दें...",
+    "no_characters": "आपने अभी तक कोई कैरेक्टर अनुमान नहीं लगाया है....",
+    "not_owned": "यह कैरेक्टर आपकी कलेक्शन में नहीं है",
+    "success": "कैरेक्टर {name} आपके पसंदीदा में जोड़ दिया गया है..."
+  },
+  "broadcast": {
+    "unauthorized": "आपको यह कमांड इस्तेमाल करने की अनुमति नहीं है।",
+    "missing_reply": "ब्रॉडकास्ट करने के लिए किसी संदेश पर रिप्लाई करें।",
+    "complete": "ब्रॉडकास्ट पूरा हुआ। {failed_sends} चैट/यूज़र को संदेश नहीं भेजा जा सका।"
+  },
+  "changetime": {
+    "not_admin": "आप एडमिन नहीं हैं।",
+    "usage": "इस्तेमाल करें: /changetime NUMBER",
+    "too_low": "संदेश फ्रीक्वेंसी 100 या उससे ज़्यादा होनी चाहिए।",
+    "success": "सफलतापूर्वक {frequency} पर बदल दिया गया",
+    "failed": "बदलने में विफल: {error}"
+  },
+  "ping": {
+    "sudo_only": "नहीं.. यह सूडो यूज़र की कमांड है..",
+    "pong": "पॉन्ग!",
+    "pong_ms": "पॉन्ग! {elapsed_time}ms"
+  },
+  "harem": {
+    "empty": "आपने अभी तक कोई कैरेक्टर अनुमान नहीं लगाया है..",
+    "title": "<b>{first_name} का हरेम - पेज {page}/{total_pages}</b>\n",
+    "see_collection": "कलेक्शन देखें ({total_count})",
+    "list_empty": "आपकी सूची खाली है :)",
+    "not_yours": "यह आपका हरेम नहीं है"
+  },
+  "trade": {
+    "reply_required": "कैरेक्टर ट्रेड करने के लिए किसी यूज़र के संदेश पर रिप्लाई करें!",
+    "self_trade": "आप खुद से कैरेक्टर ट्रेड नहीं कर सकते!",
+    "missing_ids": "कृपया दो कैरेक्टर आईडी दें!",
+    "sender_missing": "जिस कैरेक्टर को आप ट्रेड करना चाहते हैं वह आपके पास नहीं है!",
+    "receiver_missing": "दूसरे यूज़र के पास वह कैरेक्टर नहीं है जिससे आप ट्रेड करना चाहते हैं!",
+    "usage": "/trade [आपकी कैरेक्टर आईडी] [दूसरे यूज़र की कैरेक्टर आईडी]!",
+    "confirm_button": "ट्रेड स्वीकार करें",
+    "cancel_button": "ट्रेड रद्द करें",
+    "request": "{mention}, क्या आप यह ट्रेड स्वीकार करते हैं?",
+    "not_for_you": "यह आपके लिए नहीं है!",
+    "success": "आपने सफलतापूर्वक {mention} के साथ कैरेक्टर ट्रेड कर लिया!",
+    "cancelled": "❌️ रद्द कर दिया गया...."
+  },
+  "gift": {
+    "reply_required": "कैरेक्टर गिफ्ट करने के लिए किसी यूज़र के संदेश पर रिप्लाई करें!",
+    "self_gift": "आप खुद को कैरेक्टर गिफ्ट नहीं कर सकते!",
+    "missing_id": "कृपया कैरेक्टर आईडी दें!",
+    "not_owned": "यह कैरेक्टर आपकी कलेक्शन में नहीं है!",
+    "confirm_button": "गिफ्ट स्वीकार करें",
+    "cancel_button": "गिफ्ट रद्द करें",
+    "request": "क्या आप सच में {mention} को गिफ्ट देना चाहते हैं?",
+    "success": "आपने सफलतापूर्वक अपना कैरेक्टर [{first_name}](tg://user?id={user_id}) को गिफ्ट कर दिया!"
+  },
+  "leaderboard": {
+    "global_title": "<b>सबसे ज़्यादा कैरेक्टर अनुमान लगाने वाले टॉप 10 ग्रुप</b>\n\n",
+    "ctop_title": "<b>इस ग्रुप में सबसे ज़्यादा कैरेक्टर अनुमान लगाने वाले टॉप 10 यूज़र..</b>\n\n",
+    "top_title": "<b>सबसे ज़्यादा कैरेक्टर वाले टॉप 10 यूज़र</b>\n\n",
+    "unauthorized": "आपको यह कमांड इस्तेमाल करने की अनुमति नहीं है।",
+    "stats": "कुल यूज़र: {user_count}\nकुल ग्रुप: {group_count}",
+    "sudo_only": "सिर्फ सूडो यूज़र के लिए..."
+  },
+  "upload": {
+    "owner_only": "सिर्फ sudo users characters upload कर सकते हैं।",
+    "wrong_format": "गलत ❌️ फ़ॉर्मेट... उदाहरण: /upload Img_url muzan-kibutsuji Demon-slayer 3\n\nimg_url character-name anime-name rarity-number\n\nरेयरिटी नंबर रेयरिटी मैप के अनुसार इस्तेमाल करें\n\nrarity_map = 1 (⚪️ सामान्य), 2 (🟣 दुर्लभ), 3 (🟡 लीजेंडरी), 4 (🟢 मध्यम)",
+    "invalid_url": "अमान्य URL।",
+    "invalid_rarity": "अमान्य रेयरिटी। कृपया 1, 2, 3, 4, या 5 इस्तेमाल करें।",
+    "channel_caption_added": "<b>कैरेक्टर नाम:</b> {name}\n<b>ऐनिमे नाम:</b> {anime}\n<b>रेयरिटी:</b> {rarity}\n<b>आईडी:</b> {character_id}\nजोड़ा गया: <a href=\"tg://user?id={user_id}\">{first_name}</a>",
+    "channel_caption_updated": "<b>कैरेक्टर नाम:</b> {name}\n<b>ऐनिमे नाम:</b> {anime}\n<b>रेयरिटी:</b> {rarity}\n<b>आईडी:</b> {character_id}\nअपडेट किया गया: <a href=\"tg://user?id={user_id}\">{first_name}</a>",
+    "added": "कैरेक्टर जोड़ दिया गया....",
+    "added_no_channel": "कैरेक्टर जोड़ दिया गया, लेकिन डेटाबेस चैनल नहीं मिला। कृपया चैनल जोड़ने पर विचार करें।",
+    "upload_failed": "कैरेक्टर अपलोड असफल रहा। त्रुटि: {error}\nअगर आपको लगता है कि यह सोर्स त्रुटि है, तो यहाँ फ़ॉरवर्ड करें: {support_chat}",
+    "delete_owner_only": "सिर्फ sudo users characters delete कर सकते हैं।",
+    "delete_usage": "गलत फ़ॉर्मेट... इस्तेमाल करें: /delete ID",
+    "deleted": "पूरा हुआ",
+    "deleted_no_channel": "डेटाबेस से सफलतापूर्वक हटा दिया गया, लेकिन चैनल में कैरेक्टर नहीं मिला",
+    "permission_denied": "आपको यह कमांड इस्तेमाल करने की अनुमति नहीं है।",
+    "update_usage": "गलत फ़ॉर्मेट। इस्तेमाल करें: /update id field new_value",
+    "not_found": "कैरेक्टर नहीं मिला।",
+    "invalid_field": "अमान्य फ़ील्ड। इनमें से एक इस्तेमाल करें: {fields}",
+    "updated": "डेटाबेस में अपडेट हो गया.... चैनल कैप्शन एडिट होने में कभी-कभी समय लगता है.. कृपया प्रतीक्षा करें..",
+    "update_failed": "लगता है बॉट चैनल में जोड़ा नहीं गया है.. या कैरेक्टर बहुत पहले अपलोड हुआ था.. या कैरेक्टर मौजूद नहीं है.. या आईडी गलत है"
+  },
+  "sudo": {
+    "owner_only": "सिर्फ owner sudo users manage कर सकता है।",
+    "usage_add": "किसी user के message पर reply करें या /addsudo user_id इस्तेमाल करें।",
+    "usage_remove": "किसी user के message पर reply करें या /rmsudo user_id इस्तेमाल करें।",
+    "invalid_user": "मैं उस user को find नहीं कर पाया। उनके message पर reply करें या numeric user ID दें।",
+    "owner_already": "Owner के पास पहले से full power है।",
+    "cannot_remove_owner": "Owner को sudo से remove नहीं किया जा सकता।",
+    "already_sudo": "<a href=\"tg://user?id={user_id}\">{first_name}</a> पहले से sudo user है।",
+    "added": "<a href=\"tg://user?id={user_id}\">{first_name}</a> को sudo user add कर दिया।",
+    "removed": "<a href=\"tg://user?id={user_id}\">{first_name}</a> को sudo users से remove कर दिया।",
+    "not_sudo": "<a href=\"tg://user?id={user_id}\">{first_name}</a> sudo user नहीं है।",
+    "list": "<b>Owner</b>\n<a href=\"tg://user?id={owner_id}\">{owner_name}</a>\n\n<b>Sudos</b>\n{sudos}",
+    "list_empty": "अभी कोई sudo user add नहीं है।"
+  }
+}

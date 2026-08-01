@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "code": "en",
+    "name": "English"
+  },
+  "language": {
+    "current": "Current language: {language_name} ({language_code})\n\nAvailable languages:\n{languages}\n\nUse /lang <code> or /language <language name> to change it.",
+    "changed": "Language changed to {language_name} ({language_code}).",
+    "not_found": "Language not found: {query}\n\nAvailable languages:\n{languages}"
+  },
+  "start": {
+    "new_user_log": "New user Started The Bot..\n User: <a href='tg://user?id={user_id}'>{first_name})</a>",
+    "private_caption": "***Heyyyy...***\n\n***I am An Open Source Character Catcher Bot... Add Me in Your group.. And I will send Random Characters After.. every 100 messages in Group... Use /guess to.. Collect that Characters in Your Collection.. and see Collection by using /Harem... So add in Your groups and Collect Your harem***",
+    "group_caption": "🎴Alive!?... \n connect to me in PM For more information ",
+    "help_caption": "***Help Section:***\n    \n***/guess: To Guess character (only works in group)***\n***/fav: Add Your fav***\n***/trade : To trade Characters***\n***/gift: Give any Character from Your Collection to another user.. (only works in groups)***\n***/collection: To see Your Collection***\n***/topgroups : See Top Groups.. Ppl Guesses Most in that Groups***\n***/top: Too See Top Users***\n***/ctop : Your ChatTop***\n***/changetime: Change Character appear time (only works in Groups)***",
+    "back_caption": "***Hoyyyy...*** ✨\n\n***I am An Open Source Character Catcher Bot.. Add Me in Your group.. And I will send Random Characters After.. every 100 messages in Group... Use /guess to.. Collect that Characters in Your Collection.. and see Collection by using /Harem... So add in Your groups and Collect Your harem***"
+  },
+  "guess": {
+    "spam_warning": "⚠️ Don't Spam {first_name}...\nYour Messages Will be ignored for 10 Minutes...",
+    "spawn_caption": "A New {rarity} Character Appeared...\n/guess Character Name and add in Your Harem",
+    "already_guessed": "❌️ Already Guessed By Someone.. Try Next Time Bruhh ",
+    "blocked_words": "Nahh You Can't use This Types of words in your guess..❌️",
+    "wrong_guess": "Please Write Correct Character Name... ❌️",
+    "success": "<b><a href=\"tg://user?id={user_id}\">{first_name}</a></b> You Guessed a New Character ✅️ \n\n𝗡𝗔𝗠𝗘: <b>{name}</b> \n𝗔𝗡𝗜𝗠𝗘: <b>{anime}</b> \n𝗥𝗔𝗜𝗥𝗧𝗬: <b>{rarity}</b>\n\nThis Character added in Your harem.. use /harem To see your harem",
+    "see_harem": "See Harem"
+  },
+  "fav": {
+    "missing_id": "Please provide Character id...",
+    "no_characters": "You have not Guessed any characters yet....",
+    "not_owned": "This Character is Not In your collection",
+    "success": "Character {name} has been added to your favorite..."
+  },
+  "broadcast": {
+    "unauthorized": "You are not authorized to use this command.",
+    "missing_reply": "Please reply to a message to broadcast.",
+    "complete": "Broadcast complete. Failed to send to {failed_sends} chats/users."
+  },
+  "changetime": {
+    "not_admin": "You are not an Admin.",
+    "usage": "Please use: /changetime NUMBER",
+    "too_low": "The message frequency must be greater than or equal to 100.",
+    "success": "Successfully changed {frequency}",
+    "failed": "Failed to change {error}"
+  },
+  "ping": {
+    "sudo_only": "Nouu.. its Sudo user's Command..",
+    "pong": "Pong!",
+    "pong_ms": "Pong! {elapsed_time}ms"
+  },
+  "harem": {
+    "empty": "You Have Not Guessed any Characters Yet..",
+    "title": "<b>{first_name}'s Harem - Page {page}/{total_pages}</b>\n",
+    "see_collection": "See Collection ({total_count})",
+    "list_empty": "Your List is Empty :)",
+    "not_yours": "its Not Your Harem"
+  },
+  "trade": {
+    "reply_required": "You need to reply to a user's message to trade a character!",
+    "self_trade": "You can't trade a character with yourself!",
+    "missing_ids": "You need to provide two character IDs!",
+    "sender_missing": "You don't have the character you're trying to trade!",
+    "receiver_missing": "The other user doesn't have the character they're trying to trade!",
+    "usage": "/trade [Your Character ID] [Other User Character ID]!",
+    "confirm_button": "Confirm Trade",
+    "cancel_button": "Cancel Trade",
+    "request": "{mention}, do you accept this trade?",
+    "not_for_you": "This is not for you!",
+    "success": "You have successfully traded your character with {mention}!",
+    "cancelled": "❌️ Sad Cancelled...."
+  },
+  "gift": {
+    "reply_required": "You need to reply to a user's message to gift a character!",
+    "self_gift": "You can't gift a character to yourself!",
+    "missing_id": "You need to provide a character ID!",
+    "not_owned": "You don't have this character in your collection!",
+    "confirm_button": "Confirm Gift",
+    "cancel_button": "Cancel Gift",
+    "request": "do You Really Wanns To Gift {mention} ?",
+    "success": "You have successfully gifted your character to [{first_name}](tg://user?id={user_id})!"
+  },
+  "leaderboard": {
+    "global_title": "<b>TOP 10 GROUPS WHO GUESSED MOST CHARACTERS</b>\n\n",
+    "ctop_title": "<b>TOP 10 USERS WHO GUESSED CHARACTERS MOST TIME IN THIS GROUP..</b>\n\n",
+    "top_title": "<b>TOP 10 USERS WITH MOST CHARACTERS</b>\n\n",
+    "unauthorized": "You are not authorized to use this command.",
+    "stats": "Total Users: {user_count}\nTotal groups: {group_count}",
+    "sudo_only": "Only For Sudo users..."
+  },
+  "upload": {
+    "owner_only": "Only sudo users can upload characters.",
+    "wrong_format": "Wrong ❌️ format...  eg. /upload Img_url muzan-kibutsuji Demon-slayer 3\n\nimg_url character-name anime-name rarity-number\n\nuse rarity number accordingly rarity Map\n\nrarity_map = 1 (⚪️ Common), 2 (🟣 Rare) , 3 (🟡 Legendary), 4 (🟢 Medium)",
+    "invalid_url": "Invalid URL.",
+    "invalid_rarity": "Invalid rarity. Please use 1, 2, 3, 4, or 5.",
+    "channel_caption_added": "<b>Character Name:</b> {name}\n<b>Anime Name:</b> {anime}\n<b>Rarity:</b> {rarity}\n<b>ID:</b> {character_id}\nAdded by <a href=\"tg://user?id={user_id}\">{first_name}</a>",
+    "channel_caption_updated": "<b>Character Name:</b> {name}\n<b>Anime Name:</b> {anime}\n<b>Rarity:</b> {rarity}\n<b>ID:</b> {character_id}\nUpdated by <a href=\"tg://user?id={user_id}\">{first_name}</a>",
+    "added": "CHARACTER ADDED....",
+    "added_no_channel": "Character Added but no Database Channel Found, Consider adding one.",
+    "upload_failed": "Character Upload Unsuccessful. Error: {error}\nIf you think this is a source error, forward to: {support_chat}",
+    "delete_owner_only": "Only sudo users can delete characters.",
+    "delete_usage": "Incorrect format... Please use: /delete ID",
+    "deleted": "DONE",
+    "deleted_no_channel": "Deleted Successfully from db, but character not found In Channel",
+    "permission_denied": "You do not have permission to use this command.",
+    "update_usage": "Incorrect format. Please use: /update id field new_value",
+    "not_found": "Character not found.",
+    "invalid_field": "Invalid field. Please use one of the following: {fields}",
+    "updated": "Updated Done in Database.... But sometimes it Takes Time to edit Caption in Your Channel..So wait..",
+    "update_failed": "I guess did not added bot in channel.. or character uploaded Long time ago.. Or character not exits.. orr Wrong id"
+  },
+  "sudo": {
+    "owner_only": "Only the owner can manage sudo users.",
+    "usage_add": "Reply to a user or use /addsudo user_id.",
+    "usage_remove": "Reply to a user or use /rmsudo user_id.",
+    "invalid_user": "I could not find that user. Reply to their message or use a numeric user ID.",
+    "owner_already": "Owner already has full power.",
+    "cannot_remove_owner": "Owner cannot be removed from sudo.",
+    "already_sudo": "<a href=\"tg://user?id={user_id}\">{first_name}</a> is already a sudo user.",
+    "added": "Added <a href=\"tg://user?id={user_id}\">{first_name}</a> as sudo user.",
+    "removed": "Removed <a href=\"tg://user?id={user_id}\">{first_name}</a> from sudo users.",
+    "not_sudo": "<a href=\"tg://user?id={user_id}\">{first_name}</a> is not a sudo user.",
+    "list": "<b>Owner</b>\n<a href=\"tg://user?id={owner_id}\">{owner_name}</a>\n\n<b>Sudos</b>\n{sudos}",
+    "list_empty": "No sudo users added yet."
+  }
+}
