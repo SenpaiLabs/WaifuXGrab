@@ -35,6 +35,7 @@ async def send_start_response(
     caption: str,
     reply_markup: InlineKeyboardMarkup,
     parse_mode: str | None = None,
+    context: CallbackContext | None = None,
 ) -> None:
     if PHOTO_URL:
         await contextless_reply_photo(update, caption, reply_markup, parse_mode)
@@ -53,7 +54,8 @@ async def contextless_reply_photo(
     reply_markup: InlineKeyboardMarkup,
     parse_mode: str | None,
 ) -> None:
-    photo_url = random.choice(PHOTO_URL)
+    photo_urls = PHOTO_URL if isinstance(PHOTO_URL, (list, tuple, set)) else [PHOTO_URL]
+    photo_url = random.choice(photo_urls)
     await update.effective_message.reply_photo(
         photo=photo_url,
         caption=caption,
@@ -114,7 +116,7 @@ async def start(update: Update, context: CallbackContext) -> None:
 
         reply_markup = await start_keyboard(context)
 
-        await send_start_response(update, caption, reply_markup, parse_mode='markdown')
+        await send_start_response(update, caption, reply_markup, parse_mode='markdown', context=context)
 
     else:
         reply_markup = await start_keyboard(context)
@@ -122,6 +124,7 @@ async def start(update: Update, context: CallbackContext) -> None:
             update,
             await tr(update, "start.group_caption"),
             reply_markup,
+            context=context,
         )
 
 async def button(update: Update, context: CallbackContext) -> None:
