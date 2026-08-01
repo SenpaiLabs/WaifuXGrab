@@ -1,4 +1,4 @@
-FROM python:3.14-slim
+FROM python:3.11-slim
 ENV PIP_NO_CACHE_DIR 1
 # Installing Required Packages
 RUN apt update && apt upgrade -y && \
