@@ -6,7 +6,7 @@ from pymongo import ReturnDocument
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
 
-from shivu import (
+from senpai import (
     application,
     collection,
     db,
@@ -14,8 +14,8 @@ from shivu import (
     SUPPORT_CHAT,
     IMGBB_API_KEY,
 )
-from shivu.modules.auth import is_sudo_user
-from shivu.locale import tr
+from senpai.modules.auth import is_sudo_user
+from senpai.locale import tr
 
 
 IMGBB_UPLOAD_URL = "https://api.imgbb.com/1/upload"

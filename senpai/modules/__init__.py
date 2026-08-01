@@ -24,7 +24,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     quit(1)
 
 LOAD = []
-NO_LOAD = ["auth"]
+NO_LOAD = []
 
 def __list_all_modules():
     import glob

@@ -1,12 +1,12 @@
 import importlib
 
-from shivu import LOGGER, application, shivuu
-from shivu.modules import ALL_MODULES
+from senpai import LOGGER, application, shivuu
+from senpai.modules import ALL_MODULES
 
 
 def load_modules() -> None:
     for module_name in ALL_MODULES:
-        importlib.import_module(f"shivu.modules.{module_name}")
+        importlib.import_module(f"senpai.modules.{module_name}")
 
 
 def run() -> None:

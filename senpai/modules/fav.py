@@ -1,8 +1,8 @@
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler
 
-from shivu import application, user_collection
-from shivu.locale import tr
+from senpai import application, user_collection
+from senpai.locale import tr
 
 
 async def fav(update: Update, context: CallbackContext) -> None:

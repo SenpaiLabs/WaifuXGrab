@@ -1,8 +1,8 @@
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler
 
-from shivu import application, top_global_groups_collection, pm_users, OWNER_ID
-from shivu.locale import tr
+from senpai import application, top_global_groups_collection, pm_users, OWNER_ID
+from senpai.locale import tr
 
 async def broadcast(update: Update, context: CallbackContext) -> None:
 

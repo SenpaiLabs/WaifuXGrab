@@ -1,8 +1,8 @@
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler
 
-from shivu import application
-from shivu.locale import (
+from senpai import application
+from senpai.locale import (
     available_languages,
     format_language_list,
     get_chat_language,

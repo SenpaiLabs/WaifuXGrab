@@ -2,7 +2,7 @@ import json
 from functools import lru_cache
 from pathlib import Path
 
-from shivu import language_collection
+from senpai import language_collection
 
 
 DEFAULT_LANGUAGE = "en"

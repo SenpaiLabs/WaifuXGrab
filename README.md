@@ -1,22 +1,18 @@
 ![Image](https://graph.org/file/9901c2070cea11d1aa194.jpg)
 
-## WAIFU & HUSBANDO CATCHER
+## WaifuXGrab
 
 
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)<br> [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)<br>
-[![Support Group!](https://img.shields.io/badge/Join%20Group-↗-green)](https://t.me/collect_em_support)
 
-
-_**Available On Telegram As
-[Collect Em all](https://t.me/Collect_em_AllBot) and**_
-_Ask for Help in our [Support Chat](https://t.me/Collect_em_support)_
+[![Source](https://img.shields.io/badge/Source-SenpaiLabs%2FWaifuXGrab-blue)](https://github.com/SenpaiLabs/WaifuXGrab)
 
 ## About The Repository
-● This is an Open Source Implementation of Character Catcher Bot for Telegram
+WaifuXGrab is an open-source character catcher bot for Telegram.
 - For Example, Grab/Hunt/Protecc/Collect etc.. These Types of Bot You must have seen it on your telegram groups..
 - This bot sends characters in group after every 100 Messages Of Groups Then any user can Guess that character's Name Using /guess Command.
 
-- Now you can also deploy this type of bot. Using our source, we've used Python-Telegram-Bot V20.6 and Also lil bit Pyrogram. Enjoy!
+- The bot is built with Python-Telegram-Bot v20.6, Pyrogram, MongoDB, and Imgbb image hosting.
 
 ## HOW TO UPLOAD CHARACTERS?
 
@@ -56,22 +52,70 @@ use Rarity Number accordingly rarity Map
 - `/upload` - Add a new character to the database
 - `/delete` - Delete a character from the database
 - `/update` - Update stats of a character in the database
-
-## OWNER COMMANDS
 - `/ping` - Pings the bot and sends a response
-- `/stats` - Lists number or groups and users
+- `/stats` - Lists number of groups and users
 - `/list` - Sends a document with list of all users that used the bot
 - `/groups` - Sends a document with list of all groups that the bot has been in
 
+## OWNER COMMANDS
+- `/broadcast` - Broadcast a replied message to bot users and groups
+- `/addsudo` - Add a sudo user permanently in MongoDB
+- `/rmsudo` - Remove a sudo user from MongoDB
+- `/sudolist` - Show owner and sudo users. Everyone can use this command.
+
 ## DEPLOYMENT METHODS
+
+### Docker Deploy
+- Clone the repository and enter the project folder:
+```bash
+git clone https://github.com/SenpaiLabs/WaifuXGrab
+cd WaifuXGrab
+```
+
+- Create your environment file:
+```bash
+cp .env.example .env
+```
+
+- Fill these required values in `.env`:
+```env
+API_ID=
+API_HASH=
+BOT_TOKEN=
+MONGO_URL=
+IMGBB_API_KEY=
+OWNER_ID=
+CHARA_CHANNEL_ID=
+```
+
+- Build the Docker image:
+```bash
+docker build -t waifuxgrab .
+```
+
+- Start the bot:
+```bash
+docker run -d --name waifuxgrab --env-file .env --restart unless-stopped waifuxgrab
+```
+
+- Check logs:
+```bash
+docker logs -f waifuxgrab
+```
+
+- Stop or restart:
+```bash
+docker stop waifuxgrab
+docker restart waifuxgrab
+```
 
 ### Heroku
 - Fork The Repository
-- Go to [`config.py`](./shivu/config.py)
-- Fill the All variables and Go to heroku. and deploy Your forked Repository
+- Add the required environment variables from [`.env.example`](./.env.example)
+- Deploy your forked repository
 
 ### Local Deploy/VPS
-- Fill variables in [`config.py`](./shivu/config.py)
+- Create `.env` from [`.env.example`](./.env.example) and fill the required values
 - Open your VPS terminal (we're using Debian based) and run the following:
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y
@@ -79,7 +123,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install python3-pip -y
 sudo pip3 install -U pip
 
-git clone https://github.com/<YourUsername>/WAIFU-HUSBANDO-CATCHER && cd WAIFU-HUSBANDO-CATCHER
+git clone https://github.com/SenpaiLabs/WaifuXGrab && cd WaifuXGrab
 
 pip3 install -U -r requirements.txt
 

@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 
 from telegram import Chat, User
 
-from shivu import OWNER_ID, sudo_users_collection
+from senpai import OWNER_ID, sudo_users_collection
 
 
 def is_owner(user_id: int | None) -> bool:

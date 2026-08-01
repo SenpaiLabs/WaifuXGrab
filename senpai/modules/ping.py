@@ -3,9 +3,9 @@ import time
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
 
-from shivu import application
-from shivu.modules.auth import is_sudo_user
-from shivu.locale import tr
+from senpai import application
+from senpai.modules.auth import is_sudo_user
+from senpai.locale import tr
 
 async def ping(update: Update, context: CallbackContext) -> None:
     if not await is_sudo_user(update.effective_user.id):

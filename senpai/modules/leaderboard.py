@@ -5,11 +5,11 @@ from io import BytesIO
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
 
-from shivu import (application, PHOTO_URL,
+from senpai import (application, PHOTO_URL,
                     user_collection, top_global_groups_collection,
                     group_user_totals_collection)
-from shivu.modules.auth import is_sudo_user
-from shivu.locale import tr
+from senpai.modules.auth import is_sudo_user
+from senpai.locale import tr
 
 
 async def reply_leaderboard(update: Update, text: str) -> None:

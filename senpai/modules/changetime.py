@@ -1,9 +1,9 @@
 from pymongo import  ReturnDocument
 from pyrogram.enums import ChatMemberStatus, ChatType
-from shivu import user_totals_collection, shivuu
+from senpai import user_totals_collection, shivuu
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from shivu.locale import tr
+from senpai.locale import tr
 
 ADMINS = [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]
 

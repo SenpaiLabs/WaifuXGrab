@@ -8,7 +8,7 @@ from telegram import Update, InlineQueryResultPhoto
 from telegram.ext import InlineQueryHandler, CallbackContext, CommandHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
-from shivu import user_collection, collection, application, db
+from senpai import user_collection, collection, application, db
 
 
 # collection

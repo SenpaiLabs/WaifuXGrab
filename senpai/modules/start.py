@@ -4,9 +4,9 @@ from html import escape
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 
-from shivu import application, PHOTO_URL, SUPPORT_CHAT, UPDATE_CHAT, db, GROUP_ID
-from shivu import pm_users as collection
-from shivu.locale import tr
+from senpai import application, PHOTO_URL, SUPPORT_CHAT, UPDATE_CHAT, db, GROUP_ID
+from senpai import pm_users as collection
+from senpai.locale import tr
 
 
 SOURCE_URL = "https://github.com/SenpaiLabs/WaifuXGrab"

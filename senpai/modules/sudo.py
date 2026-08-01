@@ -3,8 +3,8 @@ from html import escape
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler
 
-from shivu import OWNER_ID, application
-from shivu.modules.auth import (
+from senpai import OWNER_ID, application
+from senpai.modules.auth import (
     add_sudo_user,
     display_name,
     get_sudo_users,
@@ -13,7 +13,7 @@ from shivu.modules.auth import (
     remove_sudo_user,
     resolve_target_user,
 )
-from shivu.locale import tr
+from senpai.locale import tr
 
 
 async def addsudo(update: Update, context: CallbackContext) -> None:

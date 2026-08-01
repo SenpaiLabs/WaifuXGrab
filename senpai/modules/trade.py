@@ -1,8 +1,8 @@
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from shivu import user_collection, shivuu
-from shivu.locale import tr
+from senpai import user_collection, shivuu
+from senpai.locale import tr
 
 pending_trades = {}
 

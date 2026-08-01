@@ -6,7 +6,7 @@ from html import escape
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import CallbackContext, CommandHandler, MessageHandler, filters
 
-from shivu import (
+from senpai import (
     application,
     collection,
     group_user_totals_collection,
@@ -14,7 +14,7 @@ from shivu import (
     user_collection,
     user_totals_collection,
 )
-from shivu.locale import tr
+from senpai.locale import tr
 
 
 locks = {}
